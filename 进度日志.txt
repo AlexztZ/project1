@@ -1,0 +1,137 @@
+------第一天------
+--------element-ui 
+1,安装
+	npm i element-ui -S
+2,导入main.js
+	import ElementUI from 'element-ui';
+	import 'element-ui/lib/theme-chalk/index.css';
+3,使用
+	Vue.use(ElementUI);
+--------MD5
+1、下载
+    	cnpm i md5 -S
+2、引入
+   	const md5 = require("md5");
+3、加密
+    	const passWord = md5("加密的字符");
+--------JWT
+1、下载
+    	cnpm i jwt-simple -S
+2、引入
+   	const jwt= require("jwt-simple");
+3、使用
+//生成token,
+   //参数playload,需要加密的内容
+  //参数key,密钥
+    	jwt.encode(playload,key)
+//解析token,
+   //参数token,需要解析的内容
+  //参数key,密钥
+    	jwt.decode(token,key)
+--------token逻辑
+token:令牌。  前后端分离开发。一个加密以后的字符串。该字符串可以被反编译。
+1、当用户登陆完成之后，服务端会生成一个令牌。并将令牌返回给前端。
+     令牌：个人信息，过期时间
+2、前端得到令牌之后将其保存。
+3、当调用敏感的接口时，需要传递token.
+4、服务端会对token进行验证。
+    1、验证token是否正确
+       1、正确。
+            验证token是否过期。
+             1、过期：返回过期信息给前端。前端让其自动退出。
+             2、未过期：继续执行。
+        2、不正确。返回异常。前端让其自动退出
+--------登陆逻辑
+1、前台验证账户密码输入是否符合规范,后台验证账户密码是否正确
+2、登陆成功:
+     向后台请求生成token,存入本地sessionStorage中(防止多页面打开时会获取localStorage数据导致无需登陆)
+     同时生成日志文档
+3、登陆失败:
+     向后台发送请求获取到错误信息,同时生成日志文档
+
+------第二天------
+完善后台登陆,并实现管理员日志,管理员列表,店铺类别和添加店铺类别列表页面
+服务器跨域代理放根目录 vue.config.js,
+了解本次所写项目的代码执行流程
+view中的各子页面通过router实现路由跳转功能,
+	通过store中的方法请求数据
+
+
+
+
+------第三天------
+开始准备移动端client,实现相关路由功能
+新建项目 vue create client
+	babel/router/vuex/css pre-processors
+	y/less*/n
+建立路由
+一级路由
+	import Login from '../views/Login.vue'
+	{ name:"login",path:"/login",component:Login},
+	/或者/{ name:"login",path:"/login",component:()=>import("@/views/Login.vue")},	
+二级路由
+	import Index from '../views/Index.vue'
+		...........
+	{ name:"index",path:"/",component:Index,
+		children:[
+		{ path:"/",name:"home",component:Home},
+		{ path:"/order",name:"order",component:Order},
+		{ path:"/my",name:"my",component:My},
+		]
+	}
+路由展示区
+	<router-view></router-view>
+路由跳转
+	<router-link to="/home">声明式跳转</router-link>
+	<router-link to="/home" tag='li'>声明式跳转</router-link>
+	<router-link to="/home" tag='li' active-class='类名'>声明式跳转</router-link>
+说明: 
+1.router-link 组件属性:
+	tag='li' 指定编译后的标签
+	active-class='类名' 	指定激活后的样式	模糊匹配
+	exact-active-class='类名' 	指定激活后的样式  严格匹配
+	router-link和router-view组件是vue-router插件提供的
+2.路由属性:
+	重定向	{path: '/', redirect: '/home' }, 
+	路由传参	<router-link to='xx/参数?a=1b=2'></..>
+		<router-link :to='{name:'名字',params:{id:1},query:{a:2,b:3}}'></..>
+	路由传参	//模板template	{{$route.params|query|path}} 
+		//组件 script	this.$route.params|query
+	编程时式跳转	
+		this.$router.push(string|obj)
+		this.$router.push({name:'...'})   //添加一个路由 （记录到历史记录)
+		this.$router.replace({name:'...'})   //替换一个路由 （不记录到历史记录)
+		this.$router.go(-1|1)|back()  //回退/前进
+3.验证是否有权限在路由中添加	meta:{isAuthorization:true},
+
+------第三天------
+Mint UI：基于 Vue.js 的移动端组件库
+官网：http://mint-ui.github.io/#!/zh-cn
+地址2：https://cloud.tencent.com/developer/section/1489959
+1、下载
+    npm i mint-ui -S
+2、引入
+    import MintUI from 'mint-ui'
+    import 'mint-ui/lib/style.css'
+3、安装
+    Vue.use(MintUI)
+
+
+上线流程
+1. 项目打包	npm run build
+2.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

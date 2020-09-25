@@ -1,0 +1,126 @@
+1,登陆
+    1、地址：http://127.0.0.1/login
+    2、访问方式：post
+    3、传递参数：
+        adminName:管理员账号
+        passWord：管理员密码
+    4、返回参数：
+        {
+            ok,1成功，其它是失败
+            msg:说明
+        }
+2、管理员登陆日志
+    1、地址：http://127.0.0.1/adminLog
+    2、访问方式：get
+    3、传递参数：
+        pageIndex:页数
+    4、返回参数：
+        {
+            ok,1成功，其它是失败
+            msg:说明，
+            adminLog
+        }
+3、管理员账号
+    1、地址：http://127.0.0.1/adminList
+    2、访问方式：get
+    3、传递参数：
+        pageIndex:页数,limit:数据条数
+    4、返回参数：
+        {
+            ok,1成功，其它是失败
+            msg:说明，
+            adminList
+        }
+4、根据id删除日志
+    1、地址：http://127.0.0.1/adminLog/:id
+    2、访问方式：get
+    3、传递参数：
+        	id
+    4、返回参数：
+        {
+            ok,1成功，其它是失败
+            msg:说明，
+            adminLog
+        }
+5、提交店铺类别
+    1、地址：http://127.0.0.1/shopTypeList
+    2、访问方式：post
+    3、传递参数：
+        	shopTypeName:店铺类别名称
+	shopTypePic：类别图片
+    4、返回参数：
+        {
+            ok,1成功，其它是失败
+            msg:说明，
+            shopTypeList
+        }
+6、获取店铺类别
+    1、地址：http://127.0.0.1/shopTypeList
+    2、访问方式：get
+    3、传递参数：
+        	shopTypeName:店铺类别名称
+    4、返回参数：
+        {
+            ok,1成功，其它是失败
+            msg:说明，
+            shopTypeList
+        }
+7、修改店铺类别
+    1、地址：http://127.0.0.1/shopTypeList
+    2、访问方式：post
+    3、传递参数：
+        	shopTypeName:店铺类别名称
+	shopTypePic：类别图片
+    4、返回参数：
+        {
+            ok,1成功，其它是失败
+            msg:说明，
+            shopTypeList
+        }
+8、获取所有店铺类别
+    1、地址：http://127.0.0.1/allShopTypeList
+    2、访问方式：get
+    3、传递参数：
+    4、返回参数：
+        {
+            ok,1成功，其它是失败
+            msg:说明，
+            shopTypeList
+        }
+9、提交店铺
+    1、地址：http://127.0.0.1/shopList
+    2、访问方式：post
+    3、传递参数：
+	shopName:店铺名称
+	shopPic：店铺图片
+        	shopTypeName:店铺类别名称
+	shopTypePic：类别图片
+    4、返回参数：
+        {
+            ok,1成功，其它是失败
+            msg:说明，
+            shopList
+        }
+10、获取店铺
+    1、地址：http://127.0.0.1/shopList
+    2、访问方式：get
+    3、传递参数：
+        	pageIndex:页数
+	limit:数据条数
+    4、返回参数：
+        {
+            ok,1成功，其它是失败
+            msg:说明，
+            shopList
+        }
+11、提交制定店铺信息
+    1、地址：http://127.0.0.1/shopList/:id
+    2、访问方式：get
+    3、传递参数：
+        	id
+    4、返回参数：
+        {
+            ok,1成功，其它是失败
+            msg:说明，
+            shopList
+        }
